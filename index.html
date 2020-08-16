@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCgqOVEBARKa0YGkK_r5AkyB__9d77hpbA",
+          authDomain: "web-and-mobile-app-a825f.firebaseapp.com",
+          databaseURL: "https://web-and-mobile-app-a825f.firebaseio.com",
+          projectId: "web-and-mobile-app-a825f",
+          storageBucket: "web-and-mobile-app-a825f.appspot.com",
+          messagingSenderId: "917587900325",
+          appId: "1:917587900325:web:4b1fe1635150176941da4c",
+          measurementId: "G-X2HGKX27B9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+    <title>toDoapp</title>
+
+    <style>
+        body {
+            text-align: center;
+            height: 100%;
+            background-color: #111;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 50;
+            text-align: center;
+            margin: 1rem 0 3rem;
+            font-family: 'Hind', sans-serif;
+        }
+
+        .title {
+            color: lime;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .inputDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input {
+            padding: 0.5rem 1rem;
+            outline: none;
+            border: none;
+            height: 50px;
+            border-radius: 25px;
+            width: 350px;
+            margin: 0.25rem;
+            transition: .5s;
+            font-size: 1.15rem;
+        }
+
+        .add {
+            outline: none;
+            border: none;
+            height: 50px;
+            border-radius: 25px;
+            width: 50px;
+            background-color: lime;
+            color: white;
+            cursor: pointer;
+            transition: .5s;
+            margin: 0.25rem;
+        }
+
+        .add:hover {
+            opacity: 0.7;
+        }
+
+
+        .del {
+            outline: none;
+            border: none;
+            height: 50px;
+            border-radius: 25px;
+            width: 50px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            transition: .5s;
+            margin: 0.25rem;
+        }
+
+        .del:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn{
+            outline: none;
+            border: none;
+            height: 50px;
+            border-radius: 25px;
+            width: 50px;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            transition: .5s;
+            margin: 0.25rem;
+        }
+
+        .edit{
+            outline: none;
+            border: none;
+            height: 50px;
+            border-radius: 25px;
+            width: 50px;
+            background-color: lime;
+            color: white;
+            cursor: pointer;
+            transition: .5s;
+            margin: 0.25rem;
+        }
+
+        .li{
+            font-size: 25px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1><span class="title">TODO</span>List</h1>
+
+    <div class="inputDiv">
+        <input class="input" placeholder="What do you want to do..." type="text" id="todo-item">
+        <button class="add" onclick="addTodo()" class="addButton"><i class="fas fa-plus"></i></button>
+        <button class="del" onclick="deleteAll()"><i class="fas fa-trash"></i></button>
+
+    </div>
+
+    <div class="container">
+        <ul id="list">
+
+        </ul>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
